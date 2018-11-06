@@ -13,5 +13,73 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{337e109e-5f77-4f1d-868b-47201fccd87b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\screens">
+      <UniqueIdentifier>{05acf025-7d45-4350-868b-29697b88a645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\setup">
+      <UniqueIdentifier>{8ec71110-8e40-4789-98e5-bd255d6e4646}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\game\screens\controls.cpp">
+      <Filter>game\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\screens\credits.cpp">
+      <Filter>game\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\screens\gameover.cpp">
+      <Filter>game\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\screens\gameplay.cpp">
+      <Filter>game\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\screens\menu.cpp">
+      <Filter>game\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\screens\settings.cpp">
+      <Filter>game\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\game.cpp">
+      <Filter>game\setup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\level.cpp">
+      <Filter>game\setup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\player.cpp">
+      <Filter>game\setup</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\game\screens\controls.h">
+      <Filter>game\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\screens\credits.h">
+      <Filter>game\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\screens\gameover.h">
+      <Filter>game\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\screens\gameplay.h">
+      <Filter>game\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\screens\menu.h">
+      <Filter>game\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\screens\settings.h">
+      <Filter>game\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\game.h">
+      <Filter>game\setup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\level.h">
+      <Filter>game\setup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\player.h">
+      <Filter>game\setup</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
