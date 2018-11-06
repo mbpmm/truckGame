@@ -11,15 +11,16 @@ namespace Juego
 		Vector2 size;
 		int rotation;
 		float defaultSpeed;
+		Vector2 centre;
 		bool isAlive;
 		bool inputActive;
-		bool isPlayerStickedOnWall;
-		bool isPlayerStickedOnWallY;
-		bool isPlayerStickedOnWall2;
-		bool isPlayerStickedOnWall2Y;
-		bool isInvertedGravityY;
-		bool isInvertedGravityX;
-		bool activatedGravity;
+		//bool isPlayerStickedOnWall;
+		//bool isPlayerStickedOnWallY;
+		//bool isPlayerStickedOnWall2;
+		//bool isPlayerStickedOnWall2Y;
+		//bool isInvertedGravityY;
+		//bool isInvertedGravityX;
+		//bool activatedGravity;
 		Color textureTint;
 	};
 

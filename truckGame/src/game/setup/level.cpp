@@ -12,7 +12,7 @@ namespace Juego
 	obstacle spikes[maxSpikes];
 	obstacle exit;
 
-	int currentLevel = 1;
+	int currentLevel = 0;
 
 	namespace Gameplay_Section
 	{
@@ -63,6 +63,17 @@ namespace Juego
 
 			switch (currentLevel)
 			{
+			case 0:
+			{
+				obstacles[obMiddleSquare].pos.x = (float)screenWidth / 2 - 100;
+				obstacles[obMiddleSquare].pos.y = screenHeight / 2 - 100;
+				obstacles[obMiddleSquare].size.x = 200;
+				obstacles[obMiddleSquare].size.y = 200;
+				obstacles[obMiddleSquare].speed = 0;
+				obstacles[obMiddleSquare].isAlive = true;
+				obstacles[obMiddleSquare].color = BLACK;
+			}
+			break;
 			case 1:
 			{
 				obstacles[obMiddleSquare].pos.x = (float)screenWidth / 6;

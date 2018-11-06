@@ -23,6 +23,7 @@ namespace Juego
 	{
 		Vector2 pos;
 		Vector2 size;
+		Vector2 centre;
 		float speed;
 		bool isAlive;
 		Color color;
