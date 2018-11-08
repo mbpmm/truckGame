@@ -43,13 +43,13 @@
     <ClCompile Include="..\src\game\screens\settings.cpp">
       <Filter>game\screens</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\game.cpp">
+    <ClCompile Include="..\src\game\setup\Game.cpp">
       <Filter>game\setup</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\level.cpp">
+    <ClCompile Include="..\src\game\setup\level.cpp">
       <Filter>game\setup</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\player.cpp">
+    <ClCompile Include="..\src\game\setup\Player.cpp">
       <Filter>game\setup</Filter>
     </ClCompile>
   </ItemGroup>
@@ -72,13 +72,13 @@
     <ClInclude Include="..\src\game\screens\settings.h">
       <Filter>game\screens</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\game.h">
+    <ClInclude Include="..\src\game\setup\Game.h">
       <Filter>game\setup</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\level.h">
+    <ClInclude Include="..\src\game\setup\level.h">
       <Filter>game\setup</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\player.h">
+    <ClInclude Include="..\src\game\setup\Player.h">
       <Filter>game\setup</Filter>
     </ClInclude>
   </ItemGroup>

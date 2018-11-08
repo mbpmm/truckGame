@@ -19,27 +19,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\game.cpp" />
-    <ClCompile Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\level.cpp" />
-    <ClCompile Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\player.cpp" />
     <ClCompile Include="..\src\game\screens\controls.cpp" />
     <ClCompile Include="..\src\game\screens\credits.cpp" />
     <ClCompile Include="..\src\game\screens\gameover.cpp" />
     <ClCompile Include="..\src\game\screens\gameplay.cpp" />
     <ClCompile Include="..\src\game\screens\menu.cpp" />
     <ClCompile Include="..\src\game\screens\settings.cpp" />
+    <ClCompile Include="..\src\game\setup\Game.cpp" />
+    <ClCompile Include="..\src\game\setup\level.cpp" />
+    <ClCompile Include="..\src\game\setup\Player.cpp" />
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\game.h" />
-    <ClInclude Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\level.h" />
-    <ClInclude Include="..\..\..\SlimeGame\SlimeGame\src\game\setup\player.h" />
     <ClInclude Include="..\src\game\screens\controls.h" />
     <ClInclude Include="..\src\game\screens\credits.h" />
     <ClInclude Include="..\src\game\screens\gameover.h" />
     <ClInclude Include="..\src\game\screens\gameplay.h" />
     <ClInclude Include="..\src\game\screens\menu.h" />
     <ClInclude Include="..\src\game\screens\settings.h" />
+    <ClInclude Include="..\src\game\setup\Game.h" />
+    <ClInclude Include="..\src\game\setup\level.h" />
+    <ClInclude Include="..\src\game\setup\Player.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
