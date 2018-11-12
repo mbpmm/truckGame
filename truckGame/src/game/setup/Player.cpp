@@ -84,13 +84,13 @@ namespace Juego
 					
 					playerhitbox.position.y -= playerAccelerationUp * GetFrameTime();
 
-					//playerhitbox.position.y -= playerAccelerationUp * GetFrameTime();
-					//player.position.y = playerhitbox.position.y + collisionFix;
+					playerhitbox.position.y -= playerAccelerationUp * GetFrameTime();
+					player.position.y = playerhitbox.position.y + collisionFix;
 					
-					//playerhitbox.position.y = player.position.y - collisionFix;
-					//playerhitbox.position.y -= playerAccelerationUp * GetFrameTime();
-					//player.position.y = playerhitbox.position.y;
-					//playerfront.position.y = player.position.y;
+					playerhitbox.position.y = player.position.y - collisionFix;
+					playerhitbox.position.y -= playerAccelerationUp * GetFrameTime();
+					player.position.y = playerhitbox.position.y;
+					playerfront.position.y = player.position.y;
 					
 			}
 			else if (IsKeyDown(playerKeys[DOWN]))
@@ -108,9 +108,10 @@ namespace Juego
 
 				playerhitbox.position.y += playerAccelerationDown * GetFrameTime();
 
-					/*player.position.y += player.defaultSpeed * GetFrameTime();
-					playerfront.position.y = player.position.y;
-					playerhitbox.position.y += player.defaultSpeed * GetFrameTime();*/
+				player.position.y += player.defaultSpeed * GetFrameTime();
+				playerfront.position.y = player.position.y;
+				playerhitbox.position.y += player.defaultSpeed * GetFrameTime();
+				playerfront.position.x = player.position.x;
 			}
 			else if (IsKeyDown(playerKeys[RIGHT]))
 			{
@@ -118,28 +119,39 @@ namespace Juego
 
 				player.rotation = 90;
 
-				/*player.position.x += player.defaultSpeed * GetFrameTime();
+				player.position.x += player.defaultSpeed * GetFrameTime();
 				playerfront.position.x = player.position.x;
-				playerhitbox.position.x += player.defaultSpeed * GetFrameTime();*/
+				playerhitbox.position.x += player.defaultSpeed * GetFrameTime();
 
-				/*playerAccelerationRight = playerAccelerationRight + 0.25f;
+				playerAccelerationRight = playerAccelerationRight + 0.25f;
 
 				if (playerAccelerationLeft <= 0) playerAccelerationLeft = 0;
-				else playerAccelerationLeft = playerAccelerationLeft - 0.25f;*/
+				else playerAccelerationLeft = playerAccelerationLeft - 0.25f;
+				
+
+				if (playerAccelerationUp <= 0) playerAccelerationUp = 0;
+				else playerAccelerationUp = playerAccelerationUp - 0.35f;
+				if (playerAccelerationDown <= 0) playerAccelerationDown = 0;
+				else playerAccelerationDown = playerAccelerationDown - 0.35f;
 			}
 			else if (IsKeyDown(playerKeys[LEFT]))
 			{
 				//player.size = { 100, 50 };
 				player.rotation = 270;
 
-				/*player.position.x -= player.defaultSpeed * GetFrameTime();
+				player.position.x -= player.defaultSpeed * GetFrameTime();
 				playerfront.position.x = player.position.x;
-				playerhitbox.position.x -= player.defaultSpeed * GetFrameTime();*/
+				playerhitbox.position.x -= player.defaultSpeed * GetFrameTime();
 
-				/*playerAccelerationLeft = playerAccelerationLeft + 0.25f;
+				playerAccelerationLeft = playerAccelerationLeft + 0.25f;
 
 				if (playerAccelerationRight <= 0) playerAccelerationRight = 0;
-				else playerAccelerationRight = playerAccelerationRight - 0.25f;*/
+				else playerAccelerationRight = playerAccelerationRight - 0.25f;
+
+				if (playerAccelerationUp <= 0) playerAccelerationUp = 0;
+				else playerAccelerationUp = playerAccelerationUp - 0.35f;
+				if (playerAccelerationDown <= 0) playerAccelerationDown = 0;
+				else playerAccelerationDown = playerAccelerationDown - 0.35f;
 			}
 			else 
 			{
