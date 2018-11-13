@@ -284,37 +284,7 @@ namespace Juego
 				
 			if (CheckCollisionRecs({playerhitbox.position.x,playerhitbox.position.y,playerhitbox.size.x,playerhitbox.size.y}, { obstacles[obMiddleSquare].pos.x ,obstacles[obMiddleSquare].pos.y,obstacles[obMiddleSquare].size.x,obstacles[obMiddleSquare].size.y }))
 			{
-				if (playerhitbox.position.y + playerhitbox.size.y > obstacles[obMiddleSquare].pos.y && playerhitbox.position.y + playerhitbox.size.y < obstacles[obMiddleSquare].pos.y + (obstacles[obMiddleSquare].pos.y / 2) && playerhitbox.position.x + playerhitbox.size.x > obstacles[obMiddleSquare].pos.x && playerhitbox.position.x + playerhitbox.size.x < obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x)
-				{
-					moveUp = true;
-
-					playerAccelerationUp = playerAccelerationDown;
-
-					playerAccelerationDown = 0;
-					player.position.y = obstacles[obMiddleSquare].pos.y - player.size.y + collisionFix;
-					playerhitbox.position.y = obstacles[obMiddleSquare].pos.y - playerhitbox.size.y;
-				}
-				else
-				{
-					player.position.y += playerAccelerationDown * GetFrameTime();
-				}
-
-				if (playerhitbox.position.y < obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y - 1 && playerhitbox.position.y > obstacles[obMiddleSquare].pos.y + (obstacles[obMiddleSquare].pos.y / 2))
-				{
-					moveDown = true;
-
-					playerAccelerationDown = playerAccelerationUp;
-
-					playerAccelerationUp = 0;
-					player.position.y = obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y + collisionFix;
-					playerhitbox.position.y = obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y;
-				}
-				else
-				{
-					player.position.y -= playerAccelerationUp * GetFrameTime();
-				}
-
-				if (playerhitbox.position.x + playerhitbox.size.x > obstacles[obMiddleSquare].pos.x && playerhitbox.position.x + playerhitbox.size.x < obstacles[obMiddleSquare].pos.x + (obstacles[obMiddleSquare].pos.x / 2) - 1 && player.position.y + player.size.y >= obstacles[obMiddleSquare].pos.y && player.position.y <= obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y)
+				if (playerhitbox.position.x + playerhitbox.size.x >= obstacles[obMiddleSquare].pos.x && playerhitbox.position.x + playerhitbox.size.x <= obstacles[obMiddleSquare].pos.x + 10 && playerhitbox.position.y + playerhitbox.size.y >= obstacles[obMiddleSquare].pos.y && playerhitbox.position.y <= obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y)
 				{
 					moveLeft = true;
 
@@ -322,14 +292,10 @@ namespace Juego
 
 					playerAccelerationRight = 0;
 					player.position.x = obstacles[obMiddleSquare].pos.x - player.size.x + collisionFix2;
-					playerhitbox.position.x = obstacles[obMiddleSquare].pos.x  - playerhitbox.size.x;
-				}
-				else
-				{
-
+					playerhitbox.position.x = obstacles[obMiddleSquare].pos.x - playerhitbox.size.x;
 				}
 
-				if (playerhitbox.position.x < obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x && playerhitbox.position.x >= obstacles[obMiddleSquare].pos.x && player.position.y + player.size.y >= obstacles[obMiddleSquare].pos.y && player.position.y <= obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y)
+				if (playerhitbox.position.x < obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x && playerhitbox.position.x >= obstacles[obMiddleSquare].pos.x && playerhitbox.position.y + playerhitbox.size.y >= obstacles[obMiddleSquare].pos.y && playerhitbox.position.y <= obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y)
 				{
 					moveRight = true;
 
@@ -340,10 +306,75 @@ namespace Juego
 					player.position.x = obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x + collisionFix;
 					playerhitbox.position.x = obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x;
 				}
-				else
-				{
 
+				if (playerhitbox.position.y + playerhitbox.size.y >= obstacles[obMiddleSquare].pos.y && playerhitbox.position.y + playerhitbox.size.y <= obstacles[obMiddleSquare].pos.y + (obstacles[obMiddleSquare].size.y / 2))
+				{
+					moveUp = true;
+
+					playerAccelerationUp = playerAccelerationDown;
+
+					playerAccelerationDown = 0;
+					player.position.y = obstacles[obMiddleSquare].pos.y - player.size.y + collisionFix;
+					playerhitbox.position.y = obstacles[obMiddleSquare].pos.y - playerhitbox.size.y;
 				}
+
+				if (playerhitbox.position.y <= obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y && playerhitbox.position.y >= obstacles[obMiddleSquare].pos.y + (obstacles[obMiddleSquare].size.y/2))
+				{
+					moveDown = true;
+
+					playerAccelerationDown = playerAccelerationUp;
+
+					playerAccelerationUp = 0;
+					player.position.y = obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y + collisionFix;
+					playerhitbox.position.y = obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y;
+				}
+
+				/*if (playerhitbox.position.x + playerhitbox.size.x > obstacles[obMiddleSquare].pos.x && playerhitbox.position.x + playerhitbox.size.x < obstacles[obMiddleSquare].pos.x + (obstacles[obMiddleSquare].pos.x / 2) - 1 && playerhitbox.position.y + playerhitbox.size.y >= obstacles[obMiddleSquare].pos.y && playerhitbox.position.y <= obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y)
+				{
+					moveLeft = true;
+
+					playerAccelerationLeft = playerAccelerationRight;
+
+					playerAccelerationRight = 0;
+					player.position.x = obstacles[obMiddleSquare].pos.x - player.size.x + collisionFix2;
+					playerhitbox.position.x = obstacles[obMiddleSquare].pos.x - playerhitbox.size.x;
+				}
+
+				if (playerhitbox.position.x < obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x && playerhitbox.position.x >= obstacles[obMiddleSquare].pos.x && playerhitbox.position.y + playerhitbox.size.y >= obstacles[obMiddleSquare].pos.y && playerhitbox.position.y <= obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y)
+				{
+					moveRight = true;
+
+					playerAccelerationRight = playerAccelerationLeft;
+
+					playerAccelerationLeft = 0;
+
+					player.position.x = obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x + collisionFix;
+					playerhitbox.position.x = obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x;
+				}
+
+				if (playerhitbox.position.y + playerhitbox.size.y > obstacles[obMiddleSquare].pos.y && playerhitbox.position.y + playerhitbox.size.y < obstacles[obMiddleSquare].pos.y + (obstacles[obMiddleSquare].pos.y / 2))
+				{
+					moveUp = true;
+
+					playerAccelerationUp = playerAccelerationDown;
+
+					playerAccelerationDown = 0;
+					player.position.y = obstacles[obMiddleSquare].pos.y - player.size.y + collisionFix;
+					playerhitbox.position.y = obstacles[obMiddleSquare].pos.y - playerhitbox.size.y;
+				}
+
+				if (playerhitbox.position.y < obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y && playerhitbox.position.y > obstacles[obMiddleSquare].pos.y + (obstacles[obMiddleSquare].pos.y / 2) )
+				{
+					moveDown = true;
+
+					playerAccelerationDown = playerAccelerationUp;
+
+					playerAccelerationUp = 0;
+					player.position.y = obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y + collisionFix;
+					playerhitbox.position.y = obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y;
+				}*/
+
+				
 
 				
 
