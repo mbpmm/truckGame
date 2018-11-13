@@ -72,6 +72,14 @@ namespace Juego
 				obstacles[obMiddleSquare].speed = 0;
 				obstacles[obMiddleSquare].isAlive = true;
 				obstacles[obMiddleSquare].color = BLACK;
+
+				obstacles[obMiddleSquare2].pos.x = (float)screenWidth / 2 - 450;
+				obstacles[obMiddleSquare2].pos.y = screenHeight / 2 - 100;
+				obstacles[obMiddleSquare2].size.x = 200;
+				obstacles[obMiddleSquare2].size.y = 200;
+				obstacles[obMiddleSquare2].speed = 0;
+				obstacles[obMiddleSquare2].isAlive = true;
+				obstacles[obMiddleSquare2].color = BLACK;
 			}
 			break;
 			case 1:
