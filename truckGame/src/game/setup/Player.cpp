@@ -18,6 +18,11 @@ namespace Juego
 	static int collisionFix = 0;
 	static int collisionFix2 = 0;
 
+	bool moveRight = false;
+	bool moveLeft = false;
+	bool moveUp = false;
+	bool moveDown = false;
+
 	namespace Gameplay_Section
 	{
 		void createPlayer()
@@ -82,15 +87,13 @@ namespace Juego
 					if (playerAccelerationDown <= 0) playerAccelerationDown = 0;
 					else playerAccelerationDown = playerAccelerationDown - 0.25f;
 					
-					playerhitbox.position.y -= playerAccelerationUp * GetFrameTime();
-
-					playerhitbox.position.y -= playerAccelerationUp * GetFrameTime();
-					player.position.y = playerhitbox.position.y + collisionFix;
 					
-					playerhitbox.position.y = player.position.y - collisionFix;
-					playerhitbox.position.y -= playerAccelerationUp * GetFrameTime();
-					player.position.y = playerhitbox.position.y;
-					playerfront.position.y = player.position.y;
+					
+					//
+					
+					//playerhitbox.position.y = player.position.y - collisionFix;
+					//player.position.y = playerhitbox.position.y;
+					//playerfront.position.y = player.position.y;
 					
 			}
 			else if (IsKeyDown(playerKeys[DOWN]))
@@ -106,12 +109,12 @@ namespace Juego
 					else playerAccelerationUp = playerAccelerationUp - 0.25f;
 
 
-				playerhitbox.position.y += playerAccelerationDown * GetFrameTime();
+				
 
-				player.position.y += player.defaultSpeed * GetFrameTime();
-				playerfront.position.y = player.position.y;
-				playerhitbox.position.y += player.defaultSpeed * GetFrameTime();
-				playerfront.position.x = player.position.x;
+				//player.position.y += player.defaultSpeed * GetFrameTime();
+				//playerfront.position.y = player.position.y;
+				//playerhitbox.position.y += player.defaultSpeed * GetFrameTime();
+				//playerfront.position.x = player.position.x;
 			}
 			else if (IsKeyDown(playerKeys[RIGHT]))
 			{
@@ -119,9 +122,9 @@ namespace Juego
 
 				player.rotation = 90;
 
-				player.position.x += player.defaultSpeed * GetFrameTime();
-				playerfront.position.x = player.position.x;
-				playerhitbox.position.x += player.defaultSpeed * GetFrameTime();
+				//
+				//playerfront.position.x = player.position.x;
+				
 
 				playerAccelerationRight = playerAccelerationRight + 0.25f;
 
@@ -139,9 +142,9 @@ namespace Juego
 				//player.size = { 100, 50 };
 				player.rotation = 270;
 
-				player.position.x -= player.defaultSpeed * GetFrameTime();
-				playerfront.position.x = player.position.x;
-				playerhitbox.position.x -= player.defaultSpeed * GetFrameTime();
+				//player.position.x -= player.defaultSpeed * GetFrameTime();
+				//playerfront.position.x = player.position.x;
+				
 
 				playerAccelerationLeft = playerAccelerationLeft + 0.25f;
 
@@ -155,7 +158,6 @@ namespace Juego
 			}
 			else 
 			{
-				
 
 				if(playerAccelerationLeft <= 0) playerAccelerationLeft = 0;
 				else playerAccelerationLeft = playerAccelerationLeft - 0.25f;
@@ -223,6 +225,16 @@ namespace Juego
 
 		void playerUpdate()
 		{
+			playerhitbox.position.x += playerAccelerationRight * GetFrameTime();
+			playerhitbox.position.x -= playerAccelerationLeft * GetFrameTime();
+			playerhitbox.position.y += playerAccelerationDown * GetFrameTime();
+			playerhitbox.position.y -= playerAccelerationUp * GetFrameTime();
+
+			player.position.y = playerhitbox.position.y + collisionFix; //+ collisionFix;
+			player.position.x = playerhitbox.position.x + collisionFix; //+ collisionFix;
+			playerfront.position.y = playerhitbox.position.y + collisionFix;
+			playerfront.position.x = playerhitbox.position.x + collisionFix;
+
 			if (playerAccelerationLeft >= player.defaultSpeed) playerAccelerationLeft = player.defaultSpeed;
 			if (playerAccelerationRight >= player.defaultSpeed) playerAccelerationRight = player.defaultSpeed;
 			if (playerAccelerationDown >= player.defaultSpeed) playerAccelerationDown = player.defaultSpeed;
@@ -230,9 +242,110 @@ namespace Juego
 
 			//////////////////////////////////--------------------------
 			
+			if (moveRight)
+			{
+				if (playerAccelerationRight <= 0)
+				{
+					moveRight = false;
+					playerAccelerationRight = 0;
+				}
+				else playerAccelerationRight = playerAccelerationRight - 0.25f;
+			}
+
+			if (moveLeft)
+			{
+				if (playerAccelerationLeft <= 0)
+				{
+					moveLeft = false;
+					playerAccelerationLeft = 0;
+				}
+				else playerAccelerationLeft = playerAccelerationLeft - 0.25f;
+			}
+
+			if (moveUp)
+			{
+				if (playerAccelerationUp <= 0)
+				{
+					moveUp = false;
+					playerAccelerationUp = 0;
+				}
+				else playerAccelerationUp = playerAccelerationUp - 0.25f;
+			}
+
+			if (moveDown)
+			{
+				if (playerAccelerationDown <= 0)
+				{
+					moveDown = false;
+					playerAccelerationDown = 0;
+				}
+				else playerAccelerationDown = playerAccelerationDown - 0.25f;
+			}
 				
 			if (CheckCollisionRecs({playerhitbox.position.x,playerhitbox.position.y,playerhitbox.size.x,playerhitbox.size.y}, { obstacles[obMiddleSquare].pos.x ,obstacles[obMiddleSquare].pos.y,obstacles[obMiddleSquare].size.x,obstacles[obMiddleSquare].size.y }))
 			{
+
+				/*if (playerhitbox.position.x + playerhitbox.size.x > obstacles[obMiddleSquare].pos.x && playerhitbox.position.x + playerhitbox.size.x < obstacles[obMiddleSquare].pos.x + (obstacles[obMiddleSquare].pos.x / 2) - 1)
+				{
+					moveLeft = true;
+
+					playerAccelerationLeft = playerAccelerationRight;
+
+					playerAccelerationRight = 0;
+					player.position.x = obstacles[obMiddleSquare].pos.x - player.size.x + collisionFix2;
+					playerhitbox.position.x = obstacles[obMiddleSquare].pos.x  - playerhitbox.size.x;
+				}
+				else
+				{
+
+				}
+
+				if (playerhitbox.position.x < obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x && playerhitbox.position.x >= obstacles[obMiddleSquare].pos.x )
+				{
+					moveRight = true;
+
+					playerAccelerationRight = playerAccelerationLeft;
+
+					playerAccelerationLeft = 0;
+
+					player.position.x = obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x + collisionFix;
+					playerhitbox.position.x = obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x;
+				}
+				else
+				{
+
+				}*/
+
+				if (playerhitbox.position.y + playerhitbox.size.y > obstacles[obMiddleSquare].pos.y + 1 && playerhitbox.position.y + playerhitbox.size.y < obstacles[obMiddleSquare].pos.y + (obstacles[obMiddleSquare].pos.y / 2) - 1 && playerhitbox.position.x + playerhitbox.size.x > obstacles[obMiddleSquare].pos.x && playerhitbox.position.x + playerhitbox.size.x < obstacles[obMiddleSquare].pos.x + obstacles[obMiddleSquare].size.x)
+				{
+					moveUp = true;
+
+					playerAccelerationUp = playerAccelerationDown;
+
+					playerAccelerationDown = 0;
+					player.position.y = obstacles[obMiddleSquare].pos.y - player.size.y + collisionFix;
+					playerhitbox.position.y = obstacles[obMiddleSquare].pos.y - playerhitbox.size.y;
+				}
+				else
+				{
+					player.position.y += playerAccelerationDown * GetFrameTime();
+				}
+
+				if (playerhitbox.position.y < obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y - 1 && playerhitbox.position.y > obstacles[obMiddleSquare].pos.y + (obstacles[obMiddleSquare].pos.y/2))
+				{
+					moveDown = true;
+
+					playerAccelerationDown = playerAccelerationUp;
+
+					playerAccelerationUp = 0;
+					player.position.y = obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y + collisionFix;
+					playerhitbox.position.y = obstacles[obMiddleSquare].pos.y + obstacles[obMiddleSquare].size.y;
+				}
+				else
+				{
+					player.position.y -= playerAccelerationUp * GetFrameTime();
+				}
+
 				player.textureTint = YELLOW;
 			}
 			else
@@ -244,6 +357,10 @@ namespace Juego
 
 			if (playerhitbox.position.y + playerhitbox.size.y > obBackground.pos.y + obBackground.size.y)
 			{
+				moveUp = true;
+
+				playerAccelerationUp = playerAccelerationDown;
+
 				playerAccelerationDown = 0;
 				player.position.y = obBackground.pos.y + obBackground.size.y - player.size.y + collisionFix;
 				playerhitbox.position.y = obBackground.pos.y + obBackground.size.y - playerhitbox.size.y;
@@ -255,6 +372,10 @@ namespace Juego
 			//asd
 			if (playerhitbox.position.y < obBackground.pos.y)
 			{
+				moveDown = true;
+
+				playerAccelerationDown = playerAccelerationUp;
+
 				playerAccelerationUp = 0;
 				player.position.y = obBackground.pos.y + collisionFix;
 				playerhitbox.position.y = obBackground.pos.y;
@@ -266,6 +387,10 @@ namespace Juego
 
 			if (playerhitbox.position.x + playerhitbox.size.x > obBackground.pos.x + obBackground.size.x)
 			{
+				moveLeft = true;
+
+				playerAccelerationLeft = playerAccelerationRight;
+
 				playerAccelerationRight = 0;
 				player.position.x = obBackground.pos.x + obBackground.size.x - player.size.x + collisionFix2;
 				playerhitbox.position.x = obBackground.pos.x + obBackground.size.x - playerhitbox.size.x;
@@ -277,9 +402,14 @@ namespace Juego
 
 			if (playerhitbox.position.x <= obBackground.pos.x)
 			{
+				moveRight = true;
+
+				playerAccelerationRight = playerAccelerationLeft;
+
 				playerAccelerationLeft = 0;
+
 				player.position.x = obBackground.pos.x + collisionFix;
-				playerhitbox.position.x = obBackground.pos.x;
+				playerhitbox.position.x = obBackground.pos.x;		
 			}
 			else
 			{
