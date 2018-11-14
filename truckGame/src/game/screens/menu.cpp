@@ -109,13 +109,13 @@ namespace Juego
 						buttonOption = buttonPlay;
 						break;
 					case 1:
-						buttonOption = buttonControls;
+						//buttonOption = buttonControls;
 						break;
 					case 2:
-						buttonOption = buttonSettings;
+						//buttonOption = buttonSettings;
 						break;
 					case 3:
-						buttonOption = buttonCredits;
+						//buttonOption = buttonCredits;
 						break;
 					case 4:
 						buttonOption = buttonQuit;
@@ -198,16 +198,16 @@ namespace Juego
 						DrawTextEx(sideFont, "New Assets will be loaded", { buttons[i].position.x, buttons[i].position.y + 50 + (buttons[i].position.y * 0.28f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
 						break;
 					case 1:
-						DrawTextEx(sideFont, "Learn how to play", { buttons[i].position.x, buttons[i].position.y + (buttons[i].position.y * 0.28f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
-						DrawTextEx(sideFont, "here!", { buttons[i].position.x, buttons[i].position.y + 50 + (buttons[i].position.y * 0.28f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
+						DrawTextEx(sideFont, "Unavailable on", { buttons[i].position.x, buttons[i].position.y + (buttons[i].position.y * 0.28f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
+						DrawTextEx(sideFont, "this version", { buttons[i].position.x, buttons[i].position.y + 50 + (buttons[i].position.y * 0.28f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
 						break;
 					case 2:
-						DrawTextEx(sideFont, "Change different ", { buttons[i].position.x, buttons[i].position.y + (buttons[i].position.y * 0.28f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
-						DrawTextEx(sideFont, "settings to your liking", { buttons[i].position.x, buttons[i].position.y + 50 + (buttons[i].position.y * 0.28f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
+						DrawTextEx(sideFont, "Unavailable on ", { buttons[i].position.x, buttons[i].position.y + (buttons[i].position.y * 0.28f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
+						DrawTextEx(sideFont, "this version", { buttons[i].position.x, buttons[i].position.y + 50 + (buttons[i].position.y * 0.28f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
 						break;
 					case 3:
-						DrawTextEx(sideFont, "Get to know who made", { buttons[i].position.x, buttons[i].position.y + (buttons[i].position.y * 0.18f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
-						DrawTextEx(sideFont, "this game!", { buttons[i].position.x, buttons[i].position.y + 50 + (buttons[i].position.y * 0.18f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
+						DrawTextEx(sideFont, "Unavailable on", { buttons[i].position.x, buttons[i].position.y + (buttons[i].position.y * 0.18f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
+						DrawTextEx(sideFont, "this version", { buttons[i].position.x, buttons[i].position.y + 50 + (buttons[i].position.y * 0.18f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);
 						break;
 					case 4:
 						DrawTextEx(sideFont, "Closes the game", { buttons[i].position.x, buttons[i].position.y + (buttons[i].position.y * 0.18f) }, defaultFontSize / 2, 0.1f, buttons[i].messageColor);

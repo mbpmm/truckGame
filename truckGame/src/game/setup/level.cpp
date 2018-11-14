@@ -51,7 +51,7 @@ namespace Juego
 			obBackground.size.y = screenHeight - 100;
 			obBackground.speed = 0;
 			obBackground.isAlive = true;
-			obBackground.color = GRAY;
+			obBackground.color = WHITE;
 
 			exit.pos.x = 0;
 			exit.pos.y = 0;
@@ -65,21 +65,37 @@ namespace Juego
 			{
 			case 0:
 			{
-				obstacles[obMiddleSquare].pos.x = (float)screenWidth / 2 - 100;
-				obstacles[obMiddleSquare].pos.y = screenHeight / 2 - 100;
-				obstacles[obMiddleSquare].size.x = 200;
-				obstacles[obMiddleSquare].size.y = 200;
+				obstacles[obMiddleSquare].pos.x = (float)screenWidth / 6;
+				obstacles[obMiddleSquare].pos.y = screenHeight / 4;
+				obstacles[obMiddleSquare].size.x = 250;
+				obstacles[obMiddleSquare].size.y = 120;
 				obstacles[obMiddleSquare].speed = 0;
 				obstacles[obMiddleSquare].isAlive = true;
 				obstacles[obMiddleSquare].color = BLACK;
 
-				obstacles[obMiddleSquare2].pos.x = (float)screenWidth / 2 - 450;
-				obstacles[obMiddleSquare2].pos.y = screenHeight / 2 - 100;
-				obstacles[obMiddleSquare2].size.x = 200;
-				obstacles[obMiddleSquare2].size.y = 200;
+				obstacles[obMiddleSquare2].pos.x = (float)screenWidth / 6;
+				obstacles[obMiddleSquare2].pos.y = screenHeight / 1.6f;
+				obstacles[obMiddleSquare2].size.x = 250;
+				obstacles[obMiddleSquare2].size.y = 120;
 				obstacles[obMiddleSquare2].speed = 0;
 				obstacles[obMiddleSquare2].isAlive = true;
 				obstacles[obMiddleSquare2].color = BLACK;
+
+				obstacles[obMiddleSquare3].pos.x = (float)screenWidth / 1.55f;
+				obstacles[obMiddleSquare3].pos.y = screenHeight / 4;
+				obstacles[obMiddleSquare3].size.x = 250;
+				obstacles[obMiddleSquare3].size.y = 120;
+				obstacles[obMiddleSquare3].speed = 0;
+				obstacles[obMiddleSquare3].isAlive = true;
+				obstacles[obMiddleSquare3].color = BLACK;
+
+				obstacles[obMiddleSquare4].pos.x = (float)screenWidth / 1.55f;
+				obstacles[obMiddleSquare4].pos.y = screenHeight / 1.6f;
+				obstacles[obMiddleSquare4].size.x = 250;
+				obstacles[obMiddleSquare4].size.y = 120;
+				obstacles[obMiddleSquare4].speed = 0;
+				obstacles[obMiddleSquare4].isAlive = true;
+				obstacles[obMiddleSquare4].color = BLACK;
 			}
 			break;
 			case 1:

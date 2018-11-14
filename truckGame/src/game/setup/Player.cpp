@@ -44,16 +44,16 @@ namespace Juego
 			}
 			if (currentLevel == 0)
 			{
-				player.position = { (float)screenWidth / 2, (float)screenHeight / 2 };
-				playerfront.position = { (float)screenWidth / 2, (float)screenHeight / 2 };
-				playerhitbox.position = { (float)screenWidth / 2 - playerhitbox.size.x / 2, (float)screenHeight / 2 - playerhitbox.size.y / 2 };
+				player.position = { (float)screenWidth / 12, (float)screenHeight / 2 };
+				playerfront.position = { (float)screenWidth / 12, (float)screenHeight / 2 };
+				playerhitbox.position = { (float)screenWidth / 12 - playerhitbox.size.x / 2, (float)screenHeight / 2 - playerhitbox.size.y / 2 };
 			}
 			else if(currentLevel == 1) player.position = { (float)screenWidth / 10, obBackground.pos.y + obBackground.size.y - player.size.y};
 			else if(currentLevel == 2) player.position = { (float)screenWidth / 10, obBackground.pos.y + player.size.y };
 			player.isAlive = true;
 			player.inputActive = false;
 			player.rotation = 0;
-			player.textureTint = WHITE;
+			player.textureTint = DARKGRAY;
 			playerhitbox.isAlive = true;
 			playerhitbox.inputActive = false;
 			playerhitbox.rotation = 0;
@@ -316,7 +316,7 @@ namespace Juego
 						playerhitbox.position.x = obstacles[i].pos.x + obstacles[i].size.x;
 					}
 
-					if (playerhitbox.position.y + playerhitbox.size.y > obstacles[i].pos.y && playerhitbox.position.y + playerhitbox.size.y < obstacles[i].pos.y + (obstacles[i].pos.y / 2) && playerhitbox.position.x + playerhitbox.size.x > obstacles[i].pos.x + 0.1f && playerhitbox.position.x < obstacles[i].pos.x + obstacles[i].size.x - 0.1f)
+					if (playerhitbox.position.y + playerhitbox.size.y > obstacles[i].pos.y && playerhitbox.position.y + playerhitbox.size.y < obstacles[i].pos.y + (obstacles[i].size.y / 2) && playerhitbox.position.x + playerhitbox.size.x > obstacles[i].pos.x + 0.1f && playerhitbox.position.x < obstacles[i].pos.x + obstacles[i].size.x - 0.1f)
 					{
 						moveUp = true;
 
@@ -327,7 +327,7 @@ namespace Juego
 						playerhitbox.position.y = obstacles[i].pos.y - playerhitbox.size.y;
 					}
 
-					if (playerhitbox.position.y <= obstacles[i].pos.y + obstacles[i].size.y && playerhitbox.position.y > obstacles[i].pos.y + (obstacles[i].pos.y / 2) && playerhitbox.position.x + playerhitbox.size.x > obstacles[i].pos.x + 0.1f && playerhitbox.position.x < obstacles[i].pos.x + obstacles[i].size.x - 0.1f)
+					if (playerhitbox.position.y <= obstacles[i].pos.y + obstacles[i].size.y && playerhitbox.position.y > obstacles[i].pos.y + (obstacles[i].size.y / 2) && playerhitbox.position.x + playerhitbox.size.x > obstacles[i].pos.x + 0.1f && playerhitbox.position.x < obstacles[i].pos.x + obstacles[i].size.x - 0.1f)
 					{
 						moveDown = true;
 
@@ -342,7 +342,7 @@ namespace Juego
 				}
 				else
 				{
-					player.textureTint = WHITE;
+					player.textureTint = GRAY;
 				}
 			}
 				

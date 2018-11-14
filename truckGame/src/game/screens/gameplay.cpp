@@ -35,7 +35,7 @@ namespace Juego
 
 			for (int i = 0; i < maxButtons; i++)
 			{
-				buttons[i].position.x = (float)screenWidth / 2.5f;
+				buttons[i].position.x = (float)screenWidth / 2.5f; // 2.5F
 				buttons[i].position.y = (float)screenHeight / 3.0f + buttonDistance;
 				buttons[i].width = (float)screenWidth / 5.0f;
 
@@ -51,13 +51,13 @@ namespace Juego
 				else if (resolutionBig && resolutionNormal) buttonDistance = buttonDistance + 125;
 			}
 
-			pauseButton.position.x = (float)screenWidth / 1.4f;
-			pauseButton.position.y = (float)screenHeight / 14.0f;
-			pauseButton.width = (float)screenWidth / 18.0f;
+			pauseButton.position.x = (float)screenWidth / 1.4f;//1.4F
+			pauseButton.position.y = (float)screenHeight / 210.0f; // 14.0F
+			pauseButton.width = (float)screenWidth / 22.0f;//18
 
 
 			pauseBoxRec = { buttons[0].position.x - (screenWidth / 50), buttons[0].position.y - (screenHeight / 30), (float)screenWidth / 4.2f, (float)screenHeight / 2.5f };
-			pauseButton.height = (float)screenHeight / 12.0f;
+			pauseButton.height = (float)screenHeight / 18.0f;//12
 
 			pauseButton.selected = false;
 			pauseButton.defaultColor = DARKGREEN;
@@ -80,7 +80,7 @@ namespace Juego
 
 		void InitGameplayScreen()
 		{
-			currentLevel = 1;
+			currentLevel = 0;
 
 			if (resolutionNormal)
 			{
@@ -206,7 +206,7 @@ namespace Juego
 
 			if (CheckCollisionRecs({ mouse.position.x,  mouse.position.y, mouse.width, mouse.height }, { pauseButton.position.x, pauseButton.position.y, pauseButton.width, pauseButton.height }))
 			{
-				pauseButton.defaultColor = GREEN;
+				pauseButton.defaultColor = RED;
 				pauseButton.selected = true;
 			}
 			else
@@ -228,7 +228,7 @@ namespace Juego
 					if (CheckCollisionRecs({ mouse.position.x,  mouse.position.y, mouse.width, mouse.height }, { buttons[i].position.x, buttons[i].position.y, buttons[i].width, buttons[i].height }) || buttonSelect == i)
 					{
 						buttonSelect = i;
-						buttons[i].defaultColor = GREEN;
+						buttons[i].defaultColor = RED;
 						buttons[i].selected = true;
 					}
 					else
@@ -276,7 +276,7 @@ namespace Juego
 
 			//DrawTextEx(sideFont, FormatText("Targets:%i", targetsLeft), { 20, 20 }, defaultFontSize / 1.5f, 1.0f, GREEN);
 
-			DrawTextEx(mainFont,"II", { pauseButton.position.x + 13, pauseButton.position.y + 7 }, defaultFontSize, 1.0f, pauseButton.defaultColor);
+			DrawTextEx(mainFont,"II", { pauseButton.position.x + 13, pauseButton.position.y + 2 }, defaultFontSize/1.4f, 1.0f, pauseButton.defaultColor);
 			
 
 			if (!(gameON))
@@ -290,7 +290,7 @@ namespace Juego
 					{
 						DrawRectangleLines(buttons[i].position.x, buttons[i].position.y, buttons[i].width, buttons[i].height, buttons[i].defaultColor);
 					}
-					DrawTextEx(mainFont, "PAUSED", { buttons[0].position.x - (screenWidth * 0.04f), 20 }, defaultFontSize, 1.0f, GREEN);
+					DrawTextEx(mainFont, "PAUSED", { buttons[0].position.x - (screenWidth * 0.04f), 20 }, defaultFontSize, 1.0f, DARKGREEN);
 					DrawTextEx(sideFont, "CONTINUE", { buttons[0].position.x + 10, buttons[0].position.y + 5 }, defaultFontSize / 1.3, 1.0f, buttons[0].defaultColor);
 					DrawTextEx(sideFont, "RESTART", { buttons[1].position.x + 8, buttons[1].position.y + 5 }, defaultFontSize / 1.3, 1.0f, buttons[1].defaultColor);
 					DrawTextEx(sideFont, "MENU", { buttons[2].position.x + 10, buttons[2].position.y + 5 }, defaultFontSize / 1.3, 1.0f, buttons[2].defaultColor);
