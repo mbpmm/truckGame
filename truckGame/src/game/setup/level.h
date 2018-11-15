@@ -29,6 +29,18 @@ namespace Juego
 		Color color;
 	};
 
+	struct Pendulum
+	{
+		float radius;
+		Color color;
+		Vector2 pos;
+		float length;
+		float angle;
+		float aVel;
+		float aAcc;
+		float angle2;
+	};
+
 	const int maxSpikes = 5;
 	extern int currentLevel;
 	//extern obstacle levelBackground;
@@ -42,6 +54,7 @@ namespace Juego
 	{
 		void createLevelBackground();
 		void createLevelObstacles();
+		void updatePendulum();
 		void DrawLevel();
 	}
 }

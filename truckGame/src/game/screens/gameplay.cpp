@@ -218,6 +218,7 @@ namespace Juego
 			if (gameON)
 			{		
 				playerUpdate();
+				updatePendulum();
 			}
 			else if (gamePaused)
 			{

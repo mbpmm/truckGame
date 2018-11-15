@@ -12,6 +12,8 @@ namespace Juego
 	obstacle spikes[maxSpikes];
 	obstacle exit;
 
+	Pendulum demo;
+
 	int currentLevel = 0;
 
 	namespace Gameplay_Section
@@ -23,6 +25,15 @@ namespace Juego
 
 		void createLevelObstacles()
 		{
+			demo.color = BLACK;
+			demo.radius = 40;
+			demo.pos = { (float)GetScreenWidth() / 2,(float)GetScreenHeight() / 2 };
+			demo.angle = PI / 4;
+			demo.angle2 = 7*PI/4;
+			demo.length = 280;
+			demo.aAcc = 0.0f;
+			demo.aVel = 0.0f;
+
 			for (int i = 0;i < maxObstacles;i++)
 			{
 				obstacles[i].pos.x = 0;
@@ -245,10 +256,31 @@ namespace Juego
 
 		}
 
+		void updatePendulum() 
+		{
+			bool aux = false;
+			demo.pos.y = (float)GetScreenHeight() / 2 + demo.length*sin(demo.angle);
+			/*float aux2= cos(demo.angle)*DEG2RAD;
+			demo.radius -= aux2;*/
+
+			demo.radius = 0 + demo.length*cos(demo.angle2)*(0.2);
+
+			demo.aAcc = -0.0002*sin(demo.angle)*GetFrameTime();
+			
+			demo.angle += demo.aVel;
+			demo.angle2 += demo.aVel;
+			demo.aVel += demo.aAcc;
+
+			//demo.radius = 30+(demo.aVel*10046)/2;
+			//demo.aVel *= 1;
+
+		}
+
 		void DrawLevel()
 		{
 			DrawRectangle(obBackground.pos.x, obBackground.pos.y, obBackground.size.x, obBackground.size.y, obBackground.color);
 			DrawRectangle(exit.pos.x, exit.pos.y, exit.size.x, exit.size.y, exit.color);
+			DrawCircle(demo.pos.x, demo.pos.y, demo.radius, demo.color);
 			
 			for (int i = 0; i < maxObstacles; i++)
 			{
