@@ -1,6 +1,7 @@
 #include "level.h"
 
 #include "setup/game.h"
+#include <iostream>
 
 namespace Juego
 {
@@ -26,7 +27,7 @@ namespace Juego
 		void createLevelObstacles()
 		{
 			demo.color = BLACK;
-			demo.radius = 40;
+			demo.radius = 0;
 			demo.pos = { (float)GetScreenWidth() / 2,(float)GetScreenHeight() / 2 };
 			demo.angle = PI / 4;
 			demo.angle2 = 7*PI/4;
@@ -263,17 +264,25 @@ namespace Juego
 			/*float aux2= cos(demo.angle)*DEG2RAD;
 			demo.radius -= aux2;*/
 
-			demo.radius = 0 + demo.length*cos(demo.angle2)*(0.2);
+			
 
 			demo.aAcc = -0.0002*sin(demo.angle)*GetFrameTime();
 			
-			demo.angle += demo.aVel;
-			demo.angle2 += demo.aVel;
-			demo.aVel += demo.aAcc;
+			demo.angle += demo.aVel*GetFrameTime()*3000;
+			demo.angle2 += demo.aVel*GetFrameTime()*3000;
+			demo.aVel += demo.aAcc*GetFrameTime()*3000;
 
 			//demo.radius = 30+(demo.aVel*10046)/2;
 			//demo.aVel *= 1;
-
+			cout << demo.aVel << endl;
+			if (demo.aVel>0.00022|| demo.aVel<-0.00022)
+			{
+				float auxradio;
+				auxradio = demo.radius;
+				demo.radius = auxradio;
+			}
+			else
+				demo.radius = 0 + demo.length*cos(demo.angle2)*(0.2);
 		}
 
 		void DrawLevel()
