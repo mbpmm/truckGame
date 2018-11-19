@@ -271,6 +271,7 @@ namespace Juego
 		{
 			DrawLevel();
 			playerDraw();
+			DrawArm();
 			
 
 			DrawRectangleLines(pauseButton.position.x, pauseButton.position.y, pauseButton.width, pauseButton.height, pauseButton.defaultColor);

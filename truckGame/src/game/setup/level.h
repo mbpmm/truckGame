@@ -17,6 +17,7 @@ namespace Juego
 		obMiddleSquare8,
 		obMiddleSquare9,
 		obMiddleSquare10,
+		craneBase,
 		maxObstacles
 	};
 	struct obstacle
@@ -32,6 +33,7 @@ namespace Juego
 	struct Pendulum
 	{
 		float radius;
+		Rectangle arm;
 		Color color;
 		Vector2 pos;
 		float length;
@@ -56,6 +58,7 @@ namespace Juego
 		void createLevelObstacles();
 		void updatePendulum();
 		void DrawLevel();
+		void DrawArm();
 	}
 }
 

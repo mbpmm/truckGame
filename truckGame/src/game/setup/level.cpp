@@ -12,6 +12,7 @@ namespace Juego
 	obstacle obstacles[maxObstacles];
 	obstacle spikes[maxSpikes];
 	obstacle exit;
+	Rectangle arm;
 
 	Pendulum demo;
 
@@ -26,6 +27,10 @@ namespace Juego
 
 		void createLevelObstacles()
 		{
+			arm.height = 14;
+			arm.width = 80;
+			arm.x = screenWidth / 2-3;
+			arm.y = screenHeight / 2 - 7;
 			demo.color = BLACK;
 			demo.radius = 0;
 			demo.pos = { (float)GetScreenWidth() / 2,(float)GetScreenHeight() / 2 };
@@ -34,6 +39,7 @@ namespace Juego
 			demo.length = 280;
 			demo.aAcc = 0.0f;
 			demo.aVel = 0.0f;
+			demo.arm = arm;
 
 			for (int i = 0;i < maxObstacles;i++)
 			{
@@ -108,6 +114,14 @@ namespace Juego
 				obstacles[obMiddleSquare4].speed = 0;
 				obstacles[obMiddleSquare4].isAlive = true;
 				obstacles[obMiddleSquare4].color = BLACK;
+
+				obstacles[craneBase].pos.x = (float)screenWidth / 2 + 50;
+				obstacles[craneBase].pos.y = screenHeight / 2-25;
+				obstacles[craneBase].size.x = 70;
+				obstacles[craneBase].size.y = 50;
+				obstacles[craneBase].speed = 0;
+				obstacles[craneBase].isAlive = true;
+				obstacles[craneBase].color = BLACK;
 			}
 			break;
 			case 1:
@@ -261,10 +275,6 @@ namespace Juego
 		{
 			bool aux = false;
 			demo.pos.y = (float)GetScreenHeight() / 2 + demo.length*sin(demo.angle);
-			/*float aux2= cos(demo.angle)*DEG2RAD;
-			demo.radius -= aux2;*/
-
-			
 
 			demo.aAcc = -0.0002*sin(demo.angle)*GetFrameTime();
 			
@@ -272,10 +282,8 @@ namespace Juego
 			demo.angle2 += demo.aVel*GetFrameTime()*3000;
 			demo.aVel += demo.aAcc*GetFrameTime()*3000;
 
-			//demo.radius = 30+(demo.aVel*10046)/2;
-			//demo.aVel *= 1;
 			cout << demo.aVel << endl;
-			if (demo.aVel>0.00022|| demo.aVel<-0.00022)
+			if (demo.aVel>0.00018|| demo.aVel<-0.00018)
 			{
 				float auxradio;
 				auxradio = demo.radius;
@@ -307,6 +315,13 @@ namespace Juego
 				DrawTextEx(mainFont, "OUR DEMO", { screenWidth / 7.0f, screenHeight / 1.5f }, defaultFontSize / 1.2f, 1.0f, GREEN);
 			}
 			//DrawRectangle(levelMiddleSquare.pos.x, levelMiddleSquare.pos.y, levelMiddleSquare.size.x, levelMiddleSquare.size.y, levelMiddleSquare.color);
+			
+		}
+
+		void DrawArm() 
+		{
+			DrawRectangleRec(demo.arm, GRAY);
+			DrawLineEx({ (float)GetScreenWidth() / 2, (float)GetScreenHeight() / 2 }, { demo.pos.x, demo.pos.y }, 3, GRAY);
 		}
 	}
 }
